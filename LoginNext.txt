@@ -1,0 +1,180 @@
+<html>
+<head>
+ <title>APPLY LEAVE</title>
+ <script type="text/javascript">
+   function validate(){
+	   if(document.leaveapplication.name_input.value == ""){
+		   alert("Please provide your Name!");
+		   document.leaveapplication.name_input.focus();
+		   window.location("Login.html");
+		   return false;
+	   }
+	   var email = document.leaveapplication.email_input.value;
+	   atpos = email.indexOf("@");
+	   dotpos = email.lastIndexOf(".");
+	  if (email == "" || atpos < 1 || ( dotpos - atpos < 2 )) 
+	  {
+	      alert("Please enter correct email ID")
+	      document.leaveapplication.email_input.focus() ;
+	      window.location("Login.html");
+	      return false;
+	  }
+	  var roll=document.leaveapplication.roll_input.value;
+	  if( roll == ""){
+		  alert("Please enter correct roll.no")
+	      document.leaveapplication.roll_input.focus() ;
+	      window.location("Login.html");
+	      return false;
+	  }
+	  
+	  if(document.leaveapplication.pro_input.value == ""){
+		   alert("Please provide your Proctor Name!");
+		   document.leaveapplication.pro_input.focus();
+		   window.location("Login.html");
+		   return false;
+	   }
+	  if(document.leaveapplication.date_input.value == ""){
+		   alert("Please provide the date when you want to take leave!");
+		   document.leaveapplication.date_input.focus();
+		   window.location("Login.html");
+		   return false;
+	   }
+	  if ( ( leaveapplication.year[0].checked == false ) && ( leaveapplication.year[1].checked == false ) && (leaveapplication.year[2].checked == false) && (leaveapplication.year[3].checked == false))
+	   {
+	   alert ( "Please choose your year!" );
+	   window.location("Login.html");
+	   return false;
+	   }   
+	   if(document.leaveapplication.stream.value == ""){
+		   alert("Please provide the branch!");
+		   document.leaveapplication.branch.focus();
+		   window.location("Login.html");
+		   return false;
+	   }
+   }
+ </script>
+  <style>
+     ul {
+        list-style-type: none;
+  		margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #3333FF;
+     }
+
+     li {
+        float: left;
+     }
+
+     li a {
+       display: block;
+       color: white;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+     }
+     li a:hover {
+       background-color: #111;
+     }
+     body{
+     background-color: #CCCCFF;
+     }
+     div.application{
+       font-family: sans-serif;
+       border: thin;
+       padding: 10%;
+     }
+     input[type=text],input[type=email],input[type=date],input[list],textarea{
+       width: 150%;
+       height: 40px;
+       padding: 5px;
+       margin-bottom: 25px;
+       margin-top: 5px;
+       border: 2px solid #ccc;
+       color: #4f4f4f;
+       font-size: 16px;
+       border-radius: 5px;
+     }
+     label{
+       color: #464646;
+       text-shadow: 0 1px 0 #fff;
+       font-size: 14px;
+       font-weight: bold;
+     }
+     input[type=submit],input[type=reset]{
+	   font-size: 16px;
+       background: gray;
+       border: 1px solid ;
+       color: white;
+       font-weight: bold;
+       width: 20%;
+       border-radius: 5px;
+       padding: 10px 0;
+       align-self: center;
+     }
+   </style>
+</head>
+<body>
+<ul>
+  <li><a href="#">APPLY LEAVE</a></li>
+  <li style="float:right"><a class="active" href="login.html">logout</a></li>
+  </ul>
+  <br><br>
+  <div class="application" align="left">
+ <form action="leave.html" method="post" name="leaveapplication" onsubmit="return validate();" >
+  <fieldset style="border: solid;">
+   <legend><b>LEAVE APPLICATION</b></legend>
+     <table  cellspacing="20" cellpadding="10">
+       <tr> 
+         <td label for="Name"> Name </td>
+         <td><input type="text" name="name_input"></td>
+       </tr>
+       <tr> 
+         <td label for="Mail"> Gmail </td>
+         <td><input type="email" name="email_input"></td>
+       </tr>
+       <tr> 
+         <td label for="rollno"> Roll.no </td>
+         <td><input type="text" name="roll_input"></td>
+       </tr>
+       <tr> 
+         <td label for="stream"> Stream: </td>
+         <td><input type=" text" list="stream">
+         <datalist id="stream">
+           <option value="IT">IT</option>
+           <option value="CSE">CSE</option>
+           <option value="ECE">ECE</option>
+           <option value="EEE">EEE</option>
+           <option value="MECH">MECH</option>
+           <option value="CIVIL">CIVIL</option>
+         </datalist>
+         </select></td>
+       </tr>
+       <tr>
+       <td label for=" year">  Year: </td>
+         <td>
+           <input type="radio" name="year" value="1">1
+           <input type="radio" name="year" value="2">2
+           <input type="radio" name="year" value="3">3
+           <input type="radio" name="year" value="4">4 
+         </td>
+       </tr>
+       <tr> 
+         <td label for="proctor"> Proctor </td>
+         <td><input type="text" name="pro_input"></td>
+       </tr>
+        <tr> 
+         <td label for="leave date"> leave date </td>
+         <td><input type="date" name="date_input"></td>
+       </tr>
+       <tr> 
+         <td label for="reason"> reason </td>
+         <td><textarea name="reason" rows="4" cols="30"></textarea></td>
+       </tr>
+     </table>
+         <input type="submit" value="submit" onclick="validate()"> <input type="reset" value="cancel">
+  </fieldset>
+ </form>
+ </div>
+</body>
+</html>
